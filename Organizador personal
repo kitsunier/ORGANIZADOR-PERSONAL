@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organizador Personal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        label, input, textarea {
+            width: 100%;
+            margin-top: 5px;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Organizador Personal</h2>
+        
+        <div class="section">
+            <h3>Entrenamientos</h3>
+            <label for="entrenamiento">Descripción:</label>
+            <textarea id="entrenamiento" rows="3"></textarea>
+        </div>
+        
+        <div class="section">
+            <h3>Comidas</h3>
+            <label for="comida">Plan de comidas:</label>
+            <textarea id="comida" rows="3"></textarea>
+        </div>
+        
+        <div class="section">
+            <h3>Notas</h3>
+            <label for="notas">Otras notas:</label>
+            <textarea id="notas" rows="3"></textarea>
+        </div>
+        
+        <button onclick="guardarDatos()">Guardar</button>
+    </div>
+
+    <script>
+        function guardarDatos() {
+            let entrenamiento = document.getElementById("entrenamiento").value;
+            let comida = document.getElementById("comida").value;
+            let notas = document.getElementById("notas").value;
+            
+            let datos = {
+                entrenamiento,
+                comida,
+                notas
+            };
+            
+            localStorage.setItem("organizador", JSON.stringify(datos));
+            alert("Datos guardados exitosamente!");
+        }
+    </script>
+</body>
+</html>
+
